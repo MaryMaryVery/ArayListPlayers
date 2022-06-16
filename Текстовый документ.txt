@@ -1,0 +1,136 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Collection;
+
+public class LinkedListPlayGame<P> {
+    public static void main(String[] args) {
+        ArrayList<Player> HallOfFameMembers = new ArrayList<Player>();
+
+
+        Player babe = new Player("Babe Ruth", 1914, "New York Yankees");
+        Player ty = new Player("Ty Cobb", 1905, "Detroit Tigers");
+        Player lou = new Player("Lou Gehrig", 1923, "New York Yankees");
+        Player ted = new Player("Ted Williams", 1939, "Boston Redsox");
+        Player hank = new Player("Hank Aaron", 1954, "Atlanta Braves");
+        Player yogi = new Player("Yogi Berra", 1946, "New York Yankees");
+        Player willie = new Player("Willie Mays", 1951, "San Francisco Giants");
+        Player roberto = new Player("Roberto Clemente", 1955, "Pittsburgh Pirates");
+        Player mickey = new Player("Mickey Mantle", 1951, "New York Yankees");
+        Player tom = new Player("Tom Seaver", 1967, "New York Mets");
+        Player nolan = new Player("Nolan Ryan", 1966, "Texas Rangers");
+        Player amaury = new Player("Amaury Valdes", 1975, "Newark Bears");
+
+        System.out.println("Adding 10 elements...");
+        HallOfFameMembers.add(babe);
+        HallOfFameMembers.add(ty);
+        HallOfFameMembers.add(lou);
+        HallOfFameMembers.add(ted);
+        HallOfFameMembers.add(hank);
+        HallOfFameMembers.add(yogi);
+        HallOfFameMembers.add(willie);
+        HallOfFameMembers.add(roberto);
+        HallOfFameMembers.add(mickey);
+        HallOfFameMembers.add(tom);
+        HallOfFameMembers.add(nolan);
+
+
+         System.out.println("Checking if Willie Mays is in HallOfFameMembers"
+                       + HallOfFameMembers.contains(willie));
+               System.out.println("Checking if Amaury Valdes is  in HallOfFameMembers"
+                    + HallOfFameMembers.contains(amaury));
+
+        // Adding duplicate records
+        HallOfFameMembers.add(lou);
+        HallOfFameMembers.add(babe);
+        HallOfFameMembers.add(yogi);
+
+
+
+        // Display the number of elements in ArrayList
+        System.out.println("Size of ArrayList: " + HallOfFameMembers.size());
+
+        // Check to see if the ArrayList is empty
+
+        System.out.println("Is ArrayList Empty: " + HallOfFameMembers.isEmpty());
+
+        // Display the ArrayList object
+        System.out.println(HallOfFameMembers);
+        // Remove the null entry in HallOfFameMembers
+        HallOfFameMembers.remove(null);
+        // Display the ArrayList using foreach loop
+        System.out.println("Displaying the full List of Baseball"+
+                HallOfFameMembers);
+
+        for (int i = 0; i < HallOfFameMembers.size(); i++) {
+            Player player = HallOfFameMembers.get(i);
+            System.out.format("[%d]: %s, played for %s, started career in %d",
+                    i, player.getPlayerName(),
+                    player.getTeam(), player.getStartYear());
+        }
+        int count = 0;
+        Iterator<Player> iter=(Iterator<Player>) HallOfFameMembers.iterator();
+        while (iter.hasNext()) {
+            count++;
+            Player player = iter.next();
+            System.out.format("[%d]: %s, played for %s, started career in %d",
+                    count, player.getPlayerName(),
+                    player.getTeam(), player.getStartYear());
+
+        }
+    }
+}
+
+
+
+
+public class Player {
+
+    private String playerName;
+    private int startYear;
+    private String team;
+
+    public Player(String name, int year, String team) {
+        setPlayerName(name);
+        setStartYear(year);
+        setTeam(team);
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+    private void setPlayerName(String name) {
+        this.playerName = playerName;
+    }
+    public int getStartYear() {
+        return startYear;
+        }
+    public void setStartYear(int startYear) {
+        this.startYear = startYear;
+    }
+    public String getTeam() {
+        return team;
+    }
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+  @Override
+    public String toString() {
+        return playerName;
+  }
+}
+
+
+
+console
+Adding 10 elements...
+Checking if Willie Mays is in HallOfFameMemberstrue
+Checking if Amaury Valdes is  in HallOfFameMembersfalse
+Size of ArrayList: 14
+Is ArrayList Empty: false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+Displaying the full List of Baseball[null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+[0]: null, played for New York Yankees, started career in 1914[1]: null, played for Detroit Tigers, started career in 1905[2]: null, played for New York Yankees, started career in 1923[3]: null, played for Boston Redsox, started career in 1939[4]: null, played for Atlanta Braves, started career in 1954[5]: null, played for New York Yankees, started career in 1946[6]: null, played for San Francisco Giants, started career in 1951[7]: null, played for Pittsburgh Pirates, started career in 1955[8]: null, played for New York Yankees, started career in 1951[9]: null, played for New York Mets, started career in 1967[10]: null, played for Texas Rangers, started career in 1966[11]: null, played for New York Yankees, started career in 1923[12]: null, played for New York Yankees, started career in 1914[13]: null, played for New York Yankees, started career in 1946[1]: null, played for New York Yankees, started career in 1914[2]: null, played for Detroit Tigers, started career in 1905[3]: null, played for New York Yankees, started career in 1923[4]: null, played for Boston Redsox, started career in 1939[5]: null, played for Atlanta Braves, started career in 1954[6]: null, played for New York Yankees, started career in 1946[7]: null, played for San Francisco Giants, started career in 1951[8]: null, played for Pittsburgh Pirates, started career in 1955[9]: null, played for New York Yankees, started career in 1951[10]: null, played for New York Mets, started career in 1967[11]: null, played for Texas Rangers, started career in 1966[12]: null, played for New York Yankees, started career in 1923[13]: null, played for New York Yankees, started career in 1914[14]: null, played for New York Yankees, started career in 1946
+Process finished with exit code 0
+
+
